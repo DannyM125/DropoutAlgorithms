@@ -33,7 +33,7 @@ X_test_lstm = X_test_scaled.reshape((X_test_scaled.shape[0], 1, X_test_scaled.sh
 # Function to build and train LSTM model
 def build_lstm_model():
     model = Sequential()
-    model.add(LSTM(50, activation='relu', input_shape=(1, 1)))
+    model.add(LSTM(50, activation='tanh', input_shape=(1, 1)))
     model.add(Dense(1))
     model.compile(optimizer='adam', loss='mse')
     return model
@@ -41,7 +41,7 @@ def build_lstm_model():
 # Function to build and train GRU model
 def build_gru_model():
     model = Sequential()
-    model.add(GRU(50, activation='relu', input_shape=(1, 1)))
+    model.add(GRU(50, activation='tanh', input_shape=(1, 1)))
     model.add(Dense(1))
     model.compile(optimizer='adam', loss='mse')
     return model
