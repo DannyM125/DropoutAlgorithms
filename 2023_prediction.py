@@ -50,7 +50,7 @@ X_test_lstm = X_test_scaled.reshape((X_test_scaled.shape[0], 1, X_test_scaled.sh
 # Define and train LSTM model for dropouts
 def build_lstm_model():
    model = Sequential()
-   model.add(LSTM(50, activation='relu', input_shape=(1, 1)))
+   model.add(LSTM(50, activation='tanh', input_shape=(1, 1)))
    model.add(Dense(1))
    model.compile(optimizer='adam', loss='mse')
    return model
@@ -67,7 +67,7 @@ lstm_model_rate.fit(X_train_lstm, y_train_rate_scaled, epochs=200, verbose=0)
 # Define and train GRU model for dropouts
 def build_gru_model():
    model = Sequential()
-   model.add(GRU(50, activation='relu', input_shape=(1, 1)))
+   model.add(GRU(50, activation='tanh', input_shape=(1, 1)))
    model.add(Dense(1))
    model.compile(optimizer='adam', loss='mse')
    return model
